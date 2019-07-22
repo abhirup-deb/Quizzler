@@ -94,6 +94,12 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+
+                if(Answer[qno] == true)
+                  print('Correct');
+                else
+                  print('Wrong');
+
                 setState(() {
                   qno++;
                   Scorekeeper.add(
@@ -118,6 +124,12 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+
+                if(Answer[qno] == false)
+                  print('Correct');
+                else
+                  print('Wrong');
+
                 setState(() {
                   qno++;
                   Scorekeeper.add(
