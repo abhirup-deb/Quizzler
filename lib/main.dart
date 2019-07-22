@@ -33,10 +33,28 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
 
+  void dialog(){
+    showDialog(
+        context: context,
+        child: new AlertDialog(
+            title: new Text('OOh nOO!!'),
+            content: new Text('End of Quiz.'
+                'Press the icon below to retake'),
+            actions: <Widget> [
+              FlatButton(child: Icon(Icons.autorenew),
+              onPressed: (){
+                setState(() {
+                  quiz_brain.qno = 0;
+                });;
+              },
+              ),
+            ],
+        )
+    );
+  }
+
+
   List<Icon> Scorekeeper = [];
-
-
-   
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +99,10 @@ class _QuizPageState extends State<QuizPage> {
 
                 setState(() {
                   quiz_brain.Nextq();
-
+                  if(quiz_brain.f == 1) {
+                    quiz_brain.f= 0;
+                    dialog();
+                  }
                 });
                 //The user picked true.
               },
@@ -109,6 +130,8 @@ class _QuizPageState extends State<QuizPage> {
 
                 setState(() {
                   quiz_brain.Nextq();
+                  if(quiz_brain.f == 1)
+                    dialog();
                 });
                 //The user picked false.
               },
