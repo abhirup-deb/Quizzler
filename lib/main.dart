@@ -38,8 +38,7 @@ class _QuizPageState extends State<QuizPage> {
         context: context,
         child: new AlertDialog(
             title: new Text('OOh nOO!!'),
-            content: new Text('End of Quiz.'
-                'Press the icon below to retake'),
+            content: new Text('End of Quiz.                                                        Press the icon below to retake!!'),
             actions: <Widget> [
               FlatButton(child: Icon(Icons.autorenew),
               onPressed: (){
