@@ -33,27 +33,10 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
 
-  List<Icon> Scorekeeper = [
-    Icon(
-      Icons.check,
-      color: Colors.green,
-    ),
-    Icon(
-      Icons.close,
-      color:Colors.red,
-    ),
-    Icon(
-      Icons.close,
-      color:Colors.red,
-    ),
-    Icon(
-      Icons.close,
-      color:Colors.red,
-    ),
-  ];
+  List<Icon> Scorekeeper = [];
 
 
-   int qno = 0;
+   
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +50,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quiz_brain.QuestionBank[qno].QText,
+                quiz_brain.getQText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -91,16 +74,14 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                if(quiz_brain.QuestionBank[qno].QAns == true)
+                if(quiz_brain.getQAns() == true)
                   print('Correct');
                 else
                   print('Wrong');
 
                 setState(() {
-                  qno++;
-                  Scorekeeper.add(
-                  Icon(Icons.check,color: Colors.green,),
-                  );
+                  quiz_brain.Nextq();
+
                 });
                 //The user picked true.
               },
@@ -121,16 +102,13 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
 
-                if(Quiz_brain.QuestionBank[qno].QAns == false)
+                if(quiz_brain.getQAns() == false)
                   print('Correct');
                 else
                   print('Wrong');
 
                 setState(() {
-                  qno++;
-                  Scorekeeper.add(
-                    Icon(Icons.close,color: Colors.red),
-                  );
+                  quiz_brain.Nextq();
                 });
                 //The user picked false.
               },
