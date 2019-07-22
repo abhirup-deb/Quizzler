@@ -75,9 +75,9 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 if(quiz_brain.getQAns() == true)
-                  print('Correct');
+                  Scorekeeper.add(Icon(Icons.check,color: Colors.green,));
                 else
-                  print('Wrong');
+                  Scorekeeper.add(Icon(Icons.close,color: Colors.red,));
 
                 setState(() {
                   quiz_brain.Nextq();
@@ -103,9 +103,9 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
 
                 if(quiz_brain.getQAns() == false)
-                  print('Correct');
+                  Scorekeeper.add(Icon(Icons.check,color: Colors.green,));
                 else
-                  print('Wrong');
+                  Scorekeeper.add(Icon(Icons.close,color: Colors.red,));
 
                 setState(() {
                   quiz_brain.Nextq();
