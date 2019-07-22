@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Question.dart';
 
 void main() => runApp(Quizzler());
 
@@ -48,14 +49,12 @@ class _QuizPageState extends State<QuizPage> {
       color:Colors.red,
     ),
   ];
-   List<String> Question = [
-     'You can lead a cow down stairs but not up stairs.',
-     'Approximately one quarter of human bones are in the feet.',
-     'A slug\'s blood is green.',
-   ]
 
-    List<bool> Answer = [false,true,true];
-
+    List<Question> QuestionBank = [
+      Question('You can lead a cow down stairs but not up stairs.', false),
+      Question('Approximately one quarter of human bones are in the feet.', true),
+      Question('A slug\'s blood is green.', true),
+    ];
    int qno = 0;
 
   @override
@@ -70,7 +69,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                Question[qno],
+                QuestionBank[qno].QText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -95,7 +94,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
 
-                if(Answer[qno] == true)
+                if(QuestionBank[qno].QAns == true)
                   print('Correct');
                 else
                   print('Wrong');
@@ -125,7 +124,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
 
-                if(Answer[qno] == false)
+                if(QuestionBank[qno].QAns == false)
                   print('Correct');
                 else
                   print('Wrong');
