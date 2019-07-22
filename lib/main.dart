@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'Question.dart';
+import 'Quiz_brain.dart';
+
+Quiz_brain quiz_brain = Quiz_brain();
 
 void main() => runApp(Quizzler());
 
@@ -50,11 +52,7 @@ class _QuizPageState extends State<QuizPage> {
     ),
   ];
 
-    List<Question> QuestionBank = [
-      Question('You can lead a cow down stairs but not up stairs.', false),
-      Question('Approximately one quarter of human bones are in the feet.', true),
-      Question('A slug\'s blood is green.', true),
-    ];
+
    int qno = 0;
 
   @override
@@ -69,7 +67,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                QuestionBank[qno].QText,
+                quiz_brain.QuestionBank[qno].QText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -93,8 +91,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-
-                if(QuestionBank[qno].QAns == true)
+                if(quiz_brain.QuestionBank[qno].QAns == true)
                   print('Correct');
                 else
                   print('Wrong');
@@ -124,7 +121,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
 
-                if(QuestionBank[qno].QAns == false)
+                if(Quiz_brain.QuestionBank[qno].QAns == false)
                   print('Correct');
                 else
                   print('Wrong');
