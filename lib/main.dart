@@ -23,6 +23,13 @@ class Quizzler extends StatelessWidget {
 
 class QuizPage extends StatefulWidget {
 
+
+  @override
+  _QuizPageState createState() => _QuizPageState();
+}
+
+class _QuizPageState extends State<QuizPage> {
+
   List<Icon> Scorekeeper = [
     Icon(
       Icons.check,
@@ -42,11 +49,6 @@ class QuizPage extends StatefulWidget {
     ),
   ];
 
-  @override
-  _QuizPageState createState() => _QuizPageState();
-}
-
-class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -85,7 +87,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 setState(() {
                   Scorekeeper.add(
-                  Icon(Icons.check,color: Colors.green),
+                  Icon(Icons.check,color: Colors.green,),
                   );
                 });
                 //The user picked true.
@@ -106,6 +108,11 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                setState(() {
+                  Scorekeeper.add(
+                    Icon(Icons.close,color: Colors.red),
+                  );
+                });
                 //The user picked false.
               },
             ),
